@@ -36,7 +36,7 @@ const DashboardHome = () => {
   return (
     <div>
       <h1 className="font-heading text-2xl font-bold text-foreground mb-6">Dashboard</h1>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
         {stats.map((s) => (
           <Card key={s.label}>
             <CardHeader className="pb-2">
