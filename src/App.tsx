@@ -20,6 +20,8 @@ import AdminTeachers from "./pages/admin/AdminTeachers";
 import AdminGallery from "./pages/admin/AdminGallery";
 import AdminDownloads from "./pages/admin/AdminDownloads";
 import AdminAdmissions from "./pages/admin/AdminAdmissions";
+import AdminResults from "./pages/admin/AdminResults";
+import Results from "./pages/Results";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
