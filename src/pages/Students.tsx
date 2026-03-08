@@ -10,7 +10,7 @@ const sections = [
   { icon: UserPlus, title: "Online Admission", desc: "Apply for admission online through our portal.", link: "/admissions", linkText: "Apply Now", color: "text-secondary" },
   { icon: ClipboardList, title: "Class Routine", desc: "View the daily class routine and schedule.", link: null, linkText: null, color: "text-primary" },
   { icon: Calendar, title: "Exam Routine", desc: "Check upcoming examination schedules.", link: null, linkText: null, color: "text-primary" },
-  { icon: Award, title: "Results", desc: "Check your examination results.", link: null, linkText: null, color: "text-secondary" },
+  { icon: Award, title: "Results", desc: "Check your examination results.", link: "/results", linkText: "Check Results", color: "text-secondary" },
 ];
 
 const Students = () => (
