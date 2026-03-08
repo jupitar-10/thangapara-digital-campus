@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, LayoutDashboard, FileText, LogOut, Home } from "lucide-react";
+import { GraduationCap, LayoutDashboard, FileText, LogOut, Home, Users, Image as ImageIcon, Download, UserPlus } from "lucide-react";
 import { toast } from "sonner";
 
 const AdminLayout = () => {
@@ -52,20 +52,23 @@ const AdminLayout = () => {
           </div>
         </div>
         <nav className="flex-1 p-4 space-y-1">
-          <Link
-            to="/admin/dashboard"
-            className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-primary-foreground/10 transition-colors"
-          >
-            <LayoutDashboard className="h-4 w-4" />
-            Dashboard
-          </Link>
-          <Link
-            to="/admin/dashboard/notices"
-            className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-primary-foreground/10 transition-colors"
-          >
-            <FileText className="h-4 w-4" />
-            Notices
-          </Link>
+          {[
+            { to: "/admin/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+            { to: "/admin/dashboard/notices", icon: FileText, label: "Notices" },
+            { to: "/admin/dashboard/teachers", icon: Users, label: "Teachers" },
+            { to: "/admin/dashboard/gallery", icon: ImageIcon, label: "Gallery" },
+            { to: "/admin/dashboard/downloads", icon: Download, label: "Downloads" },
+            { to: "/admin/dashboard/admissions", icon: UserPlus, label: "Admissions" },
+          ].map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-primary-foreground/10 transition-colors"
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <div className="p-4 border-t border-primary-foreground/10 space-y-2">
           <Link to="/">
@@ -94,9 +97,17 @@ const AdminLayout = () => {
             <GraduationCap className="h-5 w-5 text-secondary" />
             <span className="font-heading font-bold text-sm">Admin</span>
           </div>
-          <div className="flex gap-2">
-            <Link to="/admin/dashboard" className="text-xs px-2 py-1 rounded bg-primary-foreground/10">Dashboard</Link>
-            <Link to="/admin/dashboard/notices" className="text-xs px-2 py-1 rounded bg-primary-foreground/10">Notices</Link>
+          <div className="flex gap-2 flex-wrap">
+            {[
+              { to: "/admin/dashboard", label: "Home" },
+              { to: "/admin/dashboard/notices", label: "Notices" },
+              { to: "/admin/dashboard/teachers", label: "Teachers" },
+              { to: "/admin/dashboard/gallery", label: "Gallery" },
+              { to: "/admin/dashboard/downloads", label: "Downloads" },
+              { to: "/admin/dashboard/admissions", label: "Admissions" },
+            ].map((item) => (
+              <Link key={item.to} to={item.to} className="text-xs px-2 py-1 rounded bg-primary-foreground/10">{item.label}</Link>
+            ))}
             <Button variant="ghost" size="sm" onClick={handleLogout} className="text-primary-foreground/70 p-1">
               <LogOut className="h-4 w-4" />
             </Button>

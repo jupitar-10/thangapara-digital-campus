@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      admissions: {
+        Row: {
+          address: string | null
+          class_applied: string
+          created_at: string
+          dob: string | null
+          email: string | null
+          father_name: string | null
+          id: string
+          mobile: string | null
+          mother_name: string | null
+          status: Database["public"]["Enums"]["admission_status"]
+          student_name: string
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          class_applied: string
+          created_at?: string
+          dob?: string | null
+          email?: string | null
+          father_name?: string | null
+          id?: string
+          mobile?: string | null
+          mother_name?: string | null
+          status?: Database["public"]["Enums"]["admission_status"]
+          student_name: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          class_applied?: string
+          created_at?: string
+          dob?: string | null
+          email?: string | null
+          father_name?: string | null
+          id?: string
+          mobile?: string | null
+          mother_name?: string | null
+          status?: Database["public"]["Enums"]["admission_status"]
+          student_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           created_at: string
@@ -122,6 +167,48 @@ export type Database = {
         }
         Relationships: []
       }
+      students: {
+        Row: {
+          address: string | null
+          class: string
+          created_at: string
+          dob: string | null
+          father_name: string | null
+          id: string
+          mobile: string | null
+          mother_name: string | null
+          name: string
+          roll_number: string
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          class: string
+          created_at?: string
+          dob?: string | null
+          father_name?: string | null
+          id?: string
+          mobile?: string | null
+          mother_name?: string | null
+          name: string
+          roll_number: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          class?: string
+          created_at?: string
+          dob?: string | null
+          father_name?: string | null
+          id?: string
+          mobile?: string | null
+          mother_name?: string | null
+          name?: string
+          roll_number?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       teachers: {
         Row: {
           created_at: string
@@ -190,6 +277,7 @@ export type Database = {
       }
     }
     Enums: {
+      admission_status: "pending" | "approved" | "rejected"
       app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
@@ -318,6 +406,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      admission_status: ["pending", "approved", "rejected"],
       app_role: ["admin", "moderator", "user"],
     },
   },
