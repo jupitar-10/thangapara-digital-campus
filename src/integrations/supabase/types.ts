@@ -167,6 +167,57 @@ export type Database = {
         }
         Relationships: []
       }
+      results: {
+        Row: {
+          class: string
+          created_at: string
+          exam_name: string
+          grade: string | null
+          id: string
+          obtained_marks: number | null
+          percentage: number | null
+          roll_number: string
+          status: string
+          student_name: string
+          subjects: Json
+          total_marks: number | null
+          updated_at: string
+          year: string
+        }
+        Insert: {
+          class: string
+          created_at?: string
+          exam_name: string
+          grade?: string | null
+          id?: string
+          obtained_marks?: number | null
+          percentage?: number | null
+          roll_number: string
+          status?: string
+          student_name: string
+          subjects?: Json
+          total_marks?: number | null
+          updated_at?: string
+          year: string
+        }
+        Update: {
+          class?: string
+          created_at?: string
+          exam_name?: string
+          grade?: string | null
+          id?: string
+          obtained_marks?: number | null
+          percentage?: number | null
+          roll_number?: string
+          status?: string
+          student_name?: string
+          subjects?: Json
+          total_marks?: number | null
+          updated_at?: string
+          year?: string
+        }
+        Relationships: []
+      }
       students: {
         Row: {
           address: string | null
