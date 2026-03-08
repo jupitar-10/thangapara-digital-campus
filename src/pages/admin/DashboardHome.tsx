@@ -30,6 +30,7 @@ const DashboardHome = () => {
     { label: "Gallery", icon: Image, value: counts.gallery, color: "text-primary" },
     { label: "Downloads", icon: Download, value: counts.downloads, color: "text-secondary" },
     { label: "Admissions", icon: UserPlus, value: counts.admissions, color: "text-primary" },
+    { label: "Results", icon: Award, value: counts.results, color: "text-secondary" },
   ];
 
   return (
