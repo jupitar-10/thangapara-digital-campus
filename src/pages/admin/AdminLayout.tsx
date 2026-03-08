@@ -97,9 +97,17 @@ const AdminLayout = () => {
             <GraduationCap className="h-5 w-5 text-secondary" />
             <span className="font-heading font-bold text-sm">Admin</span>
           </div>
-          <div className="flex gap-2">
-            <Link to="/admin/dashboard" className="text-xs px-2 py-1 rounded bg-primary-foreground/10">Dashboard</Link>
-            <Link to="/admin/dashboard/notices" className="text-xs px-2 py-1 rounded bg-primary-foreground/10">Notices</Link>
+          <div className="flex gap-2 flex-wrap">
+            {[
+              { to: "/admin/dashboard", label: "Home" },
+              { to: "/admin/dashboard/notices", label: "Notices" },
+              { to: "/admin/dashboard/teachers", label: "Teachers" },
+              { to: "/admin/dashboard/gallery", label: "Gallery" },
+              { to: "/admin/dashboard/downloads", label: "Downloads" },
+              { to: "/admin/dashboard/admissions", label: "Admissions" },
+            ].map((item) => (
+              <Link key={item.to} to={item.to} className="text-xs px-2 py-1 rounded bg-primary-foreground/10">{item.label}</Link>
+            ))}
             <Button variant="ghost" size="sm" onClick={handleLogout} className="text-primary-foreground/70 p-1">
               <LogOut className="h-4 w-4" />
             </Button>
