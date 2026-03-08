@@ -105,3 +105,70 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Print styles for result cards */
+@media print {
+  /* Hide non-essential elements */
+  nav, footer, .no-print,
+  header, button, input, form, label {
+    display: none !important;
+  }
+
+  /* Reset page layout */
+  body, html {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  /* Hide hero section */
+  section.bg-primary,
+  section.relative.-mt-8 > div > div:first-child {
+    display: none !important;
+  }
+
+  /* Result card styling for print */
+  section.relative.-mt-8 {
+    margin-top: 0 !important;
+    padding: 0 !important;
+  }
+
+  .shadow-lg, .shadow-xl {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  /* Ensure progress bars show */
+  [class*="bg-emerald-500"],
+  [class*="bg-blue-500"],
+  [class*="bg-amber-500"],
+  [class*="bg-red-500"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Header banner print colors */
+  .bg-gradient-to-r {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Grade badges */
+  [class*="bg-emerald-100"],
+  [class*="bg-blue-100"],
+  [class*="bg-amber-100"],
+  [class*="bg-orange-100"],
+  [class*="bg-red-100"] {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1cm;
+  }
+}
