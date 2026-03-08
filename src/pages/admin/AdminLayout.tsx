@@ -52,20 +52,23 @@ const AdminLayout = () => {
           </div>
         </div>
         <nav className="flex-1 p-4 space-y-1">
-          <Link
-            to="/admin/dashboard"
-            className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-primary-foreground/10 transition-colors"
-          >
-            <LayoutDashboard className="h-4 w-4" />
-            Dashboard
-          </Link>
-          <Link
-            to="/admin/dashboard/notices"
-            className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-primary-foreground/10 transition-colors"
-          >
-            <FileText className="h-4 w-4" />
-            Notices
-          </Link>
+          {[
+            { to: "/admin/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+            { to: "/admin/dashboard/notices", icon: FileText, label: "Notices" },
+            { to: "/admin/dashboard/teachers", icon: Users, label: "Teachers" },
+            { to: "/admin/dashboard/gallery", icon: ImageIcon, label: "Gallery" },
+            { to: "/admin/dashboard/downloads", icon: Download, label: "Downloads" },
+            { to: "/admin/dashboard/admissions", icon: UserPlus, label: "Admissions" },
+          ].map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-primary-foreground/10 transition-colors"
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <div className="p-4 border-t border-primary-foreground/10 space-y-2">
           <Link to="/">
