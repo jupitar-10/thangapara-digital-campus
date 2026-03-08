@@ -106,6 +106,7 @@ const AdminLayout = () => {
               { to: "/admin/dashboard/gallery", label: "Gallery" },
               { to: "/admin/dashboard/downloads", label: "Downloads" },
               { to: "/admin/dashboard/admissions", label: "Admissions" },
+              { to: "/admin/dashboard/results", label: "Results" },
             ].map((item) => (
               <Link key={item.to} to={item.to} className="text-xs px-2 py-1 rounded bg-primary-foreground/10">{item.label}</Link>
             ))}
