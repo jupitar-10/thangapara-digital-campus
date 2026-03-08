@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, LayoutDashboard, FileText, LogOut, Home } from "lucide-react";
+import { GraduationCap, LayoutDashboard, FileText, LogOut, Home, Users, Image as ImageIcon, Download, UserPlus } from "lucide-react";
 import { toast } from "sonner";
 
 const AdminLayout = () => {
