@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, LayoutDashboard, FileText, LogOut, Home, Users, Image as ImageIcon, Download, UserPlus } from "lucide-react";
+import { GraduationCap, LayoutDashboard, FileText, LogOut, Home, Users, Image as ImageIcon, Download, UserPlus, Award } from "lucide-react";
 import { toast } from "sonner";
 
 const AdminLayout = () => {
@@ -59,6 +59,7 @@ const AdminLayout = () => {
             { to: "/admin/dashboard/gallery", icon: ImageIcon, label: "Gallery" },
             { to: "/admin/dashboard/downloads", icon: Download, label: "Downloads" },
             { to: "/admin/dashboard/admissions", icon: UserPlus, label: "Admissions" },
+            { to: "/admin/dashboard/results", icon: Award, label: "Results" },
           ].map((item) => (
             <Link
               key={item.to}
@@ -105,6 +106,7 @@ const AdminLayout = () => {
               { to: "/admin/dashboard/gallery", label: "Gallery" },
               { to: "/admin/dashboard/downloads", label: "Downloads" },
               { to: "/admin/dashboard/admissions", label: "Admissions" },
+              { to: "/admin/dashboard/results", label: "Results" },
             ].map((item) => (
               <Link key={item.to} to={item.to} className="text-xs px-2 py-1 rounded bg-primary-foreground/10">{item.label}</Link>
             ))}
