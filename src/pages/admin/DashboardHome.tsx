@@ -8,16 +8,17 @@ const DashboardHome = () => {
 
   useEffect(() => {
     const fetchCounts = async () => {
-      const [n, t, g, d, a] = await Promise.all([
+      const [n, t, g, d, a, r] = await Promise.all([
         supabase.from("notices").select("id", { count: "exact", head: true }),
         supabase.from("teachers").select("id", { count: "exact", head: true }),
         supabase.from("gallery").select("id", { count: "exact", head: true }),
         supabase.from("downloads").select("id", { count: "exact", head: true }),
         supabase.from("admissions").select("id", { count: "exact", head: true }),
+        supabase.from("results").select("id", { count: "exact", head: true }),
       ]);
       setCounts({
         notices: n.count || 0, teachers: t.count || 0, gallery: g.count || 0,
-        downloads: d.count || 0, admissions: a.count || 0,
+        downloads: d.count || 0, admissions: a.count || 0, results: r.count || 0,
       });
     };
     fetchCounts();
