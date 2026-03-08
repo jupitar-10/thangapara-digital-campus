@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Users, Image, Download, UserPlus } from "lucide-react";
+import { FileText, Users, Image, Download, UserPlus, Award } from "lucide-react";
 
 const DashboardHome = () => {
   const [counts, setCounts] = useState({ notices: 0, teachers: 0, gallery: 0, downloads: 0, admissions: 0 });
