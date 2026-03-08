@@ -59,6 +59,7 @@ const AdminLayout = () => {
             { to: "/admin/dashboard/gallery", icon: ImageIcon, label: "Gallery" },
             { to: "/admin/dashboard/downloads", icon: Download, label: "Downloads" },
             { to: "/admin/dashboard/admissions", icon: UserPlus, label: "Admissions" },
+            { to: "/admin/dashboard/results", icon: Award, label: "Results" },
           ].map((item) => (
             <Link
               key={item.to}
