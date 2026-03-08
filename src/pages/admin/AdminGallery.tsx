@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Pencil, Trash2, Save, X } from "lucide-react";
 import { toast } from "sonner";
+import ImageUpload from "@/components/admin/ImageUpload";
 
 interface GalleryItem {
   id: string;
@@ -61,7 +62,7 @@ const AdminGallery = () => {
   const FormFields = () => (
     <div className="space-y-3">
       <Input placeholder="Title *" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} maxLength={200} />
-      <Input placeholder="Image URL *" value={form.image_url} onChange={(e) => setForm({ ...form, image_url: e.target.value })} />
+      <ImageUpload value={form.image_url} onChange={(url) => setForm({ ...form, image_url: url })} folder="gallery" placeholder="Gallery Image" />
       <div className="grid grid-cols-2 gap-3">
         <Input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} maxLength={50} />
         <Input type="date" placeholder="Event Date" value={form.event_date} onChange={(e) => setForm({ ...form, event_date: e.target.value })} />

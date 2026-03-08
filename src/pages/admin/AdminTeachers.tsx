@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Pencil, Trash2, Save, X } from "lucide-react";
 import { toast } from "sonner";
+import ImageUpload from "@/components/admin/ImageUpload";
 
 interface Teacher {
   id: string;
@@ -75,7 +76,7 @@ const AdminTeachers = () => {
         <Input placeholder="Qualification" value={form.qualification} onChange={(e) => setForm({ ...form, qualification: e.target.value })} maxLength={100} />
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <Input placeholder="Photo URL" value={form.photo_url} onChange={(e) => setForm({ ...form, photo_url: e.target.value })} />
+        <ImageUpload value={form.photo_url} onChange={(url) => setForm({ ...form, photo_url: url })} folder="teachers" placeholder="Teacher Photo" />
         <Input type="number" placeholder="Display Order" value={form.display_order} onChange={(e) => setForm({ ...form, display_order: e.target.value })} />
       </div>
     </div>
