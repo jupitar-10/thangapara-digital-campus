@@ -14,16 +14,183 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      downloads: {
+        Row: {
+          category: string | null
+          created_at: string
+          file_url: string
+          id: string
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          file_url: string
+          id?: string
+          title: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          file_url?: string
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      gallery: {
+        Row: {
+          category: string | null
+          created_at: string
+          event_date: string | null
+          id: string
+          image_url: string
+          title: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          event_date?: string | null
+          id?: string
+          image_url: string
+          title: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          event_date?: string | null
+          id?: string
+          image_url?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      notices: {
+        Row: {
+          content: string
+          created_at: string
+          date: string
+          id: string
+          is_active: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          date?: string
+          id?: string
+          is_active?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          date?: string
+          id?: string
+          is_active?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      teachers: {
+        Row: {
+          created_at: string
+          designation: string | null
+          display_order: number | null
+          id: string
+          name: string
+          photo_url: string | null
+          qualification: string | null
+          subject: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          designation?: string | null
+          display_order?: number | null
+          id?: string
+          name: string
+          photo_url?: string | null
+          qualification?: string | null
+          subject: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          designation?: string | null
+          display_order?: number | null
+          id?: string
+          name?: string
+          photo_url?: string | null
+          qualification?: string | null
+          subject?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +317,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
