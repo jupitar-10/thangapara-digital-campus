@@ -38,6 +38,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+
+    permissions:
+      pages: write
+      id-token: write
+
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+    
